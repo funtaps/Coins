@@ -12,6 +12,7 @@ require 'CoinGroup.php';
 require 'Weighing.php';
 require 'Solution.php';
 require 'MySolution.php';
+require 'MySolutionInline.php';
 
 for($bad_coin_index=0; $bad_coin_index<12; $bad_coin_index++){
     $coins=array();
@@ -22,7 +23,7 @@ for($bad_coin_index=0; $bad_coin_index<12; $bad_coin_index++){
             $coins[]=new Coin(Coin::NORMAL);
     }
     $cg=new CoinGroup($coins);
-    $solution=new MySolution($cg);
+    $solution=new MySolutionInline($cg);
     $solution->solute();
     if($solution->getResult()===$bad_coin_index){
         echo $bad_coin_index." ";
@@ -43,7 +44,7 @@ for($bad_coin_index=0; $bad_coin_index<12; $bad_coin_index++){
             $coins[]=new Coin(Coin::NORMAL);
     }
     $cg=new CoinGroup($coins);
-    $solution=new MySolution($cg);
+    $solution=new MySolutionInline($cg);
     $solution->solute();
     if($solution->getResult()===$bad_coin_index){
         echo $bad_coin_index." ";
